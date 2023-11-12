@@ -1,0 +1,37 @@
+{/* Spacing.mdx */}
+import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs';
+import { CustomThemeProvider } from '../core/contexts/CustomTheme.provider';
+import { Spacing } from './helpers/spacing';
+
+
+<Meta
+  title="Styling/Theme/Space"
+  parameters={{
+    docsOnly: true,
+    docs: {
+      container: ({ children, context }) => (
+        <DocsContainer context={context}>
+          <CustomThemeProvider>{children}</CustomThemeProvider>
+        </DocsContainer>
+      )
+    }
+  }}
+/>
+
+# Spacing
+
+<br /><br />
+#### We use Styled System, which comes powers-of-two based [spacing scale](https://styled-system.com/guides/why-powers-of-two): 
+
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// set margin-left + margin-right to 4 => 2rem (32px) 
+<Box marginX={4}/>
+
+// set padding to 4 => 2rem (32px)
+<Box padding={4} />
+```
+
+<Spacing/>

@@ -1,0 +1,48 @@
+{/* Breakpoints.mdx */}
+import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs';
+import { CustomThemeProvider } from '../core/contexts/CustomTheme.provider';
+import { Breakpoints } from './helpers/breakpoints';
+
+<Meta
+  title="Styling/Theme/Breakpoints"
+  parameters={{
+    docsOnly: true,
+    docs: {
+      container: ({ children, context }) => (
+        <DocsContainer context={context}>
+          <CustomThemeProvider>{children}</CustomThemeProvider>
+        </DocsContainer>
+      )
+    }
+  }}
+/>
+
+# Breakpoints
+
+<br /><br />
+#### All breakpoints are defined in the theme, and have associated keys.
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// We use the Styled System approach for breakpoints: https://styled-system.com/responsive-styles
+
+
+// to apply a responsive margin use:
+
+<Box m={[ 1, 2, 3, 4, 5 ]} />
+...or
+<Box m={{ _: 1, sm: 2, md: 3, lg: 4, xl: 5 }} />
+
+// 1: below the smallest breakpoint (below sm)
+// 2: from the next breakpoint and up (between sm and md)
+// 3: from the next breakpoint and up (between md and lg)
+// 4: from the next breakpoint and up (between lg and xl)
+// 5: from the next breakpoint and up (above xl)
+```
+
+<br />
+
+<Canvas>
+    <Breakpoints />
+</Canvas>

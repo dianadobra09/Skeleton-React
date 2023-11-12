@@ -1,0 +1,110 @@
+{/* Typography.mdx */}
+import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs';
+import { CustomThemeProvider } from '../core/contexts/CustomTheme.provider';
+import { TypographyTable, FontSizes, FontWeights, LineHeights, LetterSpacings } from './helpers/typography';
+
+<Meta
+  title="Styling/Theme/Typography"
+  parameters={{
+    docsOnly: true,
+    docs: {
+      container: ({ children, context }) => (
+        <DocsContainer context={context}>
+          <CustomThemeProvider>{children}</CustomThemeProvider>
+        </DocsContainer>
+      )
+    }
+  }}
+/>
+
+# Typography
+
+<br /><br />
+#### All typography variants are defined in the theme, and can be passed as props to any Box component by their key name.
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// Basic usage
+<Box typographyVariant="body1" />
+<Box typographyVariant="body3" />
+
+// Responsive usage
+<Box typographyVariant={{ _: 'body1', md: 'body5' }} />
+<Box typographyVariant={['body1', null, 'body5']}/>
+```
+
+#### You should always aim to use a known Typography Variant. However, you have the ability to control individual text style properties
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// Use the `body1` typography variant as a base, then override the line height
+// `theme.lineHeights['short']` => 1.3
+<Box typographyVariant="body3" lineHeight="short" />
+
+// You can also provide a non-named token as a value to `lineHeight`
+<Box typographyVariant="body3" lineHeight={1.3} />
+```
+
+<br />
+## Typography Variants
+
+<Canvas>
+    <TypographyTable />
+</Canvas>
+
+
+
+## Font Weights
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// `theme.fontWeights['bold']` => 700
+<Box typographyVariant="body1" fontWeight="bold" />
+```
+<Canvas>
+    <FontWeights />
+</Canvas>   
+
+
+
+## Font Sizes
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// `theme.fontSizes[900]` => 1.5rem (24px)
+<Box typographyVariant="body1" fontSize={900} />
+```
+<Canvas>
+    <FontSizes />
+</Canvas>
+
+
+
+## Line Heights
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// `theme.lineHeights['tall']` => 1.5
+<Box typographyVariant="body1" lineHeight="tall" />
+```
+<Canvas>
+   <LineHeights />
+</Canvas>
+
+
+
+## Letter Spacings
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+
+// `theme.letterSpacings['wider']` => '0.05em
+<Box typographyVariant="body1" letterSpacings="wider" />
+```
+<Canvas>
+    <LetterSpacings />
+</Canvas>

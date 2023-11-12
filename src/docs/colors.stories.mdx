@@ -1,0 +1,151 @@
+{/* Colors.mdx */}
+import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs';
+import {CustomThemeProvider} from '../core/contexts/CustomTheme.provider';
+import { GridContainer, Colors } from './helpers/colors';
+
+<Meta title="Styling/Theme/Colors" parameters={{ 
+  docsOnly: true, 
+  docs: {
+    container: ({ children, context }) => (
+      <DocsContainer context={context}>
+        <CustomThemeProvider>
+          {children}
+        </CustomThemeProvider>
+      </DocsContainer>
+    )
+  } 
+  }} 
+/>
+
+# Colors
+<br /><br />
+#### All colors are defined in the theme, and can be used anywhere by their key name.
+
+```jsx
+import { Box } from '../core/components/Box/Box';
+import { StyleSystemProps } from '../core/styling/config/styled-system.types';
+
+// you can use them directly to any color props 
+<Box bg="gray1" />
+<Box color="gray4" />
+...
+
+// or... set them in a StyleSystemProps object to be passed as props to any Box component 
+const boxStyles: StyleSystemProps = {
+  borderColor: 'yellow1',
+  ...
+};
+<Box {...boxStyles} />
+```
+```jsx
+// optionally, you can set raw css values. 
+// however, this is not recommended, as we want to keep the theme consistent
+<Box color="red" />
+<Box color="#451225" />
+```
+```jsx
+// responsive values are also supported
+<Box color={['red1', null, 'blue1', 'green1', 'gray1']} />
+<Box color={{ sm: 'red1', md: 'blue1', lg: 'green1', xl:'gray1' }} />
+
+const boxStyles: StyleSystemProps = {
+  backgroundColor: {
+    _: 'red1',
+    md: 'blue1',
+    lg: 'green1',
+    xl: 'gray1'
+  }
+  ...
+};
+<Box {...boxStyles} />
+```
+
+## Light Theme
+<br /><br />
+### Basic
+<Canvas>
+  <GridContainer>
+    <Colors palette="basic" />
+  </GridContainer>
+</Canvas>
+
+### Gray
+<Canvas>
+  <GridContainer>
+    <Colors palette="gray" />
+  </GridContainer>
+</Canvas>
+
+### Blue
+<Canvas>
+  <GridContainer>
+    <Colors palette="blue" />
+  </GridContainer>
+</Canvas>
+
+### Green
+<Canvas>
+  <GridContainer>
+    <Colors palette="green" />
+  </GridContainer>
+</Canvas>
+
+### Red
+<Canvas>
+  <GridContainer>
+    <Colors palette="red" />
+  </GridContainer>
+</Canvas>
+
+### Yellow
+<Canvas>
+  <GridContainer>
+    <Colors palette="yellow" />
+  </GridContainer>
+</Canvas>
+
+<br /><br /><br />
+## Dark Theme
+<br /><br />
+### Basic
+<Canvas>
+  <GridContainer>
+    <Colors palette="basic" themeMode="dark"/>
+  </GridContainer>
+</Canvas>
+
+### Gray
+<Canvas>
+  <GridContainer>
+    <Colors palette="gray" themeMode="dark"/>
+  </GridContainer>
+</Canvas>
+
+### Blue
+<Canvas>
+  <GridContainer>
+    <Colors palette="blue" />
+  </GridContainer>
+</Canvas>
+
+### Green
+<Canvas>
+  <GridContainer>
+    <Colors palette="green" />
+  </GridContainer>
+</Canvas>
+
+### Red
+<Canvas>
+  <GridContainer>
+    <Colors palette="red" />
+  </GridContainer>
+</Canvas>
+
+### Yellow
+<Canvas>
+  <GridContainer>
+    <Colors palette="yellow" />
+  </GridContainer>
+</Canvas>
+

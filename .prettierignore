@@ -1,0 +1,6 @@
+**/*/schema.graphql
+/docs/**/*
+polyfills.ts
+artifacts
+dist
+/src/graphql/generated.tsx
