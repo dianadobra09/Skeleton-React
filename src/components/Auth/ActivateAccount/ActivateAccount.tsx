@@ -86,7 +86,7 @@ export const ActivateAccount = () => {
             />
           </InputContainer>
 
-          <SubmitContainer __css={styles.submitContainer} marginTop={'24px'} marginBottom={'8px'}>
+          <SubmitContainer __css={styles.submitContainer}>
             <Button>Submit</Button>
           </SubmitContainer>
         </form>

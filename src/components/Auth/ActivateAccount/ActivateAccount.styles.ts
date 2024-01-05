@@ -45,7 +45,9 @@ const inputContainerStyles: StyleSystemProps = {
 const submitContainerStyles: StyleSystemProps = {
   display: 'flex',
   justifyContent: 'end',
-  alignItems: 'center'
+  alignItems: 'center',
+  marginTop: '24px',
+  marginBottom: '8px'
 };
 
 const logoContainerStyles: StyleSystemProps = {

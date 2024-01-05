@@ -5,6 +5,9 @@ import { CustomThemeProvider } from '../core/contexts/CustomTheme.provider';
 import { NotificationToastProvider } from '../core/contexts/NotificationToast.provider';
 import { BaseComponentProps } from '../core/types/Core';
 import ErrorBoundary from '../core/contexts/ErrorBoundary';
+import { AuthService } from '../core/services/AuthService';
+import { AuthenticationProvider } from '../core/contexts/Authentication.provider';
+import { AppRoutes } from '../core/router/AppRoutes';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -20,19 +23,22 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito', sans-serif;
   }
 `;
+const authService = new AuthService();
 
 export const Providers: React.FC<BaseComponentProps> = ({ children }) => {
   return (
     <ErrorBoundary>
       <CustomThemeProvider>
         <NotificationToastProvider />
-
-        <BrowserRouter>
-          <>
-            <GlobalStyle />
-            {children}
-          </>
-        </BrowserRouter>
+        <AuthenticationProvider authService={authService}>
+          <BrowserRouter>
+            <AppRoutes />
+            <>
+              <GlobalStyle />
+              {children}
+            </>
+          </BrowserRouter>
+        </AuthenticationProvider>
       </CustomThemeProvider>
     </ErrorBoundary>
   );

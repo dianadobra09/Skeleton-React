@@ -1,12 +1,11 @@
 import React, { FormEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { ReactComponent as Logo } from '../../../assets/logo/logo.svg';
 import { Button } from '../../../core/components/Button/Button';
 import { Input } from '../../../core/components/Input/Input';
-import { Container, Header, InputContainer, LogoContainer, SubmitContainer, Text, styles } from './Login.styles';
 import { useAuth } from '../../../core/contexts/Authentication.provider';
-import { set } from 'lodash-es';
-import { toast } from 'react-toastify';
+import { Container, Header, InputContainer, LogoContainer, SubmitContainer, Text, styles } from './Login.styles';
 
 export const Login = () => {
   const navigate = useNavigate();
