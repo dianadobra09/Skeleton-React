@@ -1,9 +1,9 @@
 {
-	"short_name": "Schematyc",
-	"name": "Schematyc",
-	"icons": [],
-	"start_url": ".",
-	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+  "short_name": "Skeleton",
+  "name": "Skeleton",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
