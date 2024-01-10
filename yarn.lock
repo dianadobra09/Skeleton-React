@@ -10935,6 +10935,11 @@ react-inspector@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-6.0.2.tgz#aa3028803550cb6dbd7344816d5c80bf39d07e9d"
   integrity sha512-x+b7LxhmHXjHoU/VrFAzw5iutsILRoYyDq97EDYdFpPLcvqtEzk4ZSZSQjnFPbr5T57tLXnHcqFYoN1pI6u8uQ==
 
+react-international-phone@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-international-phone/-/react-international-phone-4.0.4.tgz#0e3e0f344057123134a234afca33807dbda66e24"
+  integrity sha512-VLtgKFo8lisiwIqIYrMgfFJEJbuGNDGdHKsgL5MoxdXRfspkJsJ7s3q/dT44mZvcuv7T6qQI8m0fbTbiyxBA7A==
+
 react-is@18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.1.0.tgz#61aaed3096d30eacf2a2127118b5b41387d32a67"

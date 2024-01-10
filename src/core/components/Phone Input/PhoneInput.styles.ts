@@ -2,33 +2,63 @@ import { CSSProperties } from 'react';
 import styled from 'styled-components';
 import { StyleSystemProps } from '../../styling/config/styled-system.types';
 import { Box } from '../Box/Box';
+import { CountrySelector } from 'react-international-phone';
+import 'react-international-phone/style.css';
 
 export const StyledInput = styled(Box)`
   ::-webkit-inner-spin-button {
     display: none;
   }
   ::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.colors.gray1};
+    color: ${({ theme }) => theme.colors.gray6};
   }
 `;
 export const StyledInputContainer = styled(Box)``;
 export const StyledLabel = styled(Box)``;
 export const StyledSearchIcon = styled(Box)``;
+export const StyledCountrySelector = styled(CountrySelector)`
+  ul {
+    background-color: ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.gray2};
+    border-radius: 12px;
+    color: ${({ theme }) => theme.colors.gray13};
+
+    li {
+      span {
+        font-family: ${({ theme }) => theme.typography.variants.body6.fontFamily};
+        font-size: ${({ theme }) => theme.typography.variants.body6.fontSize};
+        font-weight: ${({ theme }) => theme.typography.variants.body6.fontWeight};
+        line-height: ${({ theme }) => theme.typography.variants.body6.lineHeight};
+        letter-spacing: ${({ theme }) => theme.typography.variants.body6.letterSpacing};
+      }
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.gray4};
+        color: ${({ theme }) => theme.colors.green1};
+      }
+
+      &.react-international-phone-country-selector-dropdown__list-item--focused {
+        background-color: ${({ theme }) => theme.colors.gray4};
+        color: ${({ theme }) => theme.colors.green1};
+      }
+    }
+  }
+`;
 
 const inputStyles: StyleSystemProps = {
   borderRadius: '12px',
   border: '1px solid',
-  borderColor: 'green1',
-  height: '42px',
-  color: 'white',
+  borderColor: 'gray2',
+  height: '38px',
+  color: 'gray13',
   paddingX: '10px',
   paddingY: 0,
-  backgroundColor: 'gray5',
-  typographyVariant: 'body1',
+  backgroundColor: 'base',
+  typographyVariant: 'body6',
   boxSizing: 'border-box',
   _focus: {
     outline: 'none',
-    borderColor: 'green1'
+    borderColor: 'blue2'
   },
   width: 'inherit',
   paddingLeft: '64px',
@@ -44,9 +74,9 @@ const inputContainerStyles: StyleSystemProps = {
 };
 
 const labelStyles: StyleSystemProps = {
-  color: 'white',
+  color: 'gray11',
   marginBottom: '4px',
-  typographyVariant: 'body1',
+  typographyVariant: 'body7',
   width: '300px'
 };
 

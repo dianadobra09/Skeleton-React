@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { CountrySelector, usePhoneInput } from 'react-international-phone';
-import 'react-international-phone/style.css';
+import { usePhoneInput } from 'react-international-phone';
 import { StyleSystemProps } from '../../styling/config/styled-system.types';
 import { Button } from '../Button/Button';
-import { StyledInput, StyledInputContainer, StyledLabel, styles } from './PhoneInput.styles';
+import { StyledCountrySelector, StyledInput, StyledInputContainer, StyledLabel, styles } from './PhoneInput.styles';
 
 export interface InputProps {
   label?: string;
@@ -46,9 +45,7 @@ const PhoneInput: React.FC<InputProps> = props => {
   return (
     <StyledInputContainer __css={containerStyling}>
       {label && <StyledLabel __css={styles.label}>{label}</StyledLabel>}
-      <CountrySelector
-        // selectedCountry={selectedCountry.iso2}
-        // onSelect={(country: any) => setSelectedCountry(country)}
+      <StyledCountrySelector
         selectedCountry={phoneInput.country.iso2}
         onSelect={country => phoneInput.setCountry(country.iso2)}
         renderButtonWrapper={({ children, rootProps }) => (
