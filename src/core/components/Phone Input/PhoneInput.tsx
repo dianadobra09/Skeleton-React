@@ -3,6 +3,7 @@ import { usePhoneInput } from 'react-international-phone';
 import { StyleSystemProps } from '../../styling/config/styled-system.types';
 import { Button } from '../Button/Button';
 import { StyledCountrySelector, StyledInput, StyledInputContainer, StyledLabel, styles } from './PhoneInput.styles';
+import { Box } from '../Box/Box';
 
 export interface InputProps {
   label?: string;
@@ -45,28 +46,29 @@ const PhoneInput: React.FC<InputProps> = props => {
   return (
     <StyledInputContainer __css={containerStyling}>
       {label && <StyledLabel __css={styles.label}>{label}</StyledLabel>}
-      <StyledCountrySelector
-        selectedCountry={phoneInput.country.iso2}
-        onSelect={country => phoneInput.setCountry(country.iso2)}
-        renderButtonWrapper={({ children, rootProps }) => (
-          <Button {...rootProps} variant={'empty'} height={'40px'} paddingX={2} backgroundColor={'gray5'}>
-            {children}
-          </Button>
-        )}
-        style={styles.countrySelector}
-      />
-      <StyledInput
-        as="input"
-        id="result_input"
-        className="number-separator"
-        __css={inputStyling}
-        placeholder={placeholder}
-        type={'tel'}
-        value={phoneInput.phone}
-        onChange={phoneInput.handlePhoneValueChange}
-        ref={inputRef}
-        disabled={isDisabled}
-      />
+      <Box position={'relative'} width={'100%'}>
+        <StyledCountrySelector
+          selectedCountry={phoneInput.country.iso2}
+          onSelect={country => phoneInput.setCountry(country.iso2)}
+          renderButtonWrapper={({ children, rootProps }) => (
+            <Button {...rootProps} variant={'empty'} height={'40px'} paddingX={2} backgroundColor={'gray5'}>
+              {children}
+            </Button>
+          )}
+          style={styles.countrySelector}
+        />
+        <StyledInput
+          as="input"
+          id="result_input"
+          __css={inputStyling}
+          placeholder={placeholder}
+          type={'tel'}
+          value={phoneInput.phone}
+          onChange={phoneInput.handlePhoneValueChange}
+          ref={inputRef}
+          disabled={isDisabled}
+        />
+      </Box>
     </StyledInputContainer>
   );
 };

@@ -28,7 +28,8 @@ const inputStyles: StyleSystemProps = {
     outline: 'none',
     borderColor: 'green1'
   },
-  width: 'inherit',
+  maxWidth: '300px',
+  minWidth: '300px',
   paddingLeft: '10px',
   accentColor: '#C8FF9D'
 };
